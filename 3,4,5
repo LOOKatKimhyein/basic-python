@@ -1,0 +1,1335 @@
+#!/usr/bin/env python
+
+# coding: utf-8
+
+ 
+
+# #### 03-1 IF
+
+ 
+
+# - and, or, not
+
+# - in , not in
+
+ 
+
+# In[1]:
+
+ 
+
+ 
+
+1 not in [5,2,6,7]
+
+ 
+
+ 
+
+# In[3]:
+
+ 
+
+ 
+
+pocket = ['paper','money','collphone']
+
+if 'money' in pocket:
+
+    pass
+
+elif 'apple' not in pocket:
+
+    print('yes')
+
+else :
+
+    print('oh')
+
+ 
+
+ 
+
+# In[4]:
+
+ 
+
+ 
+
+pocket = ['paper','money','collphone']
+
+if'apple' not in pocket:
+
+    print('yes')
+
+elif 'money' in pocket:
+
+    pass
+
+else :
+
+    print('oh')
+
+ 
+
+ 
+
+# #### 03-2 while
+
+ 
+
+# - break문을 통해 강제로 while문을 빠져나온다
+
+ 
+
+# In[7]:
+
+ 
+
+ 
+
+num = 10
+
+mon = 3000
+
+while 1:
+
+    print('start===')
+
+    num -= 1
+
+    print("remain {}".format(num))
+
+    if num < 0:
+
+        print('stop')
+
+        break
+
+ 
+
+ 
+
+# - continue: while문 조건으로 돌아간다
+
+ 
+
+# In[10]:
+
+ 
+
+ 
+
+a = 0
+
+while a < 10:
+
+    a +=1
+
+    if a%2 == 0 :continue
+
+    print(a)
+
+# a가 짝수인경우, continue가 걸리므로 print(a)가 실행X
+
+ 
+
+ 
+
+# In[11]:
+
+ 
+
+ 
+
+while a:
+
+    print("ctrl+c")
+
+ 
+
+ 
+
+# #### 03-3 for
+
+ 
+
+# In[14]:
+
+ 
+
+ 
+
+marks = [15,36,92,82,61]
+
+num  =  0
+
+for mark in marks:
+
+    num += 1
+
+    if mark > 60:
+
+        print("{}번째 학생은 합격".format(num))
+
+    else:
+
+        print('fail')
+
+ 
+
+ 
+
+# - continue문을 만나면 for문의 처음으로 돌아간다
+
+ 
+
+# In[15]:
+
+ 
+
+ 
+
+marks = [15,36,92,82,61]
+
+num  =  0
+
+for mark in marks:
+
+    num += 1
+
+    if mark > 60:continue
+
+    else:
+
+        print('fail')
+
+ 
+
+ 
+
+# In[18]:
+
+ 
+
+ 
+
+list(range(0,11))
+
+ 
+
+ 
+
+# In[21]:
+
+ 
+
+ 
+
+for i in range(1,10):
+
+    for j in range(1,10):
+
+        print("{} * {} = ".format(i,j), i*j, end = ' ')
+
+    print("==========")
+
+ 
+
+ 
+
+# In[22]:
+
+ 
+
+ 
+
+nums = [3,2,6,7]
+
+[num * 3 for num in nums if num %2 ==0]
+
+#!/usr/bin/env python
+
+# coding: utf-8
+
+ 
+
+# #### 04-1 함수
+
+ 
+
+# In[1]:
+
+ 
+
+ 
+
+def say():
+
+    return 'hi'
+
+ 
+
+ 
+
+# In[2]:
+
+ 
+
+ 
+
+say()
+
+ 
+
+ 
+
+# ##### 입력값이 몇 개가 될지 모를 때는?
+
+ 
+
+# In[3]:
+
+ 
+
+ 
+
+def add_things(*args):
+
+    a = 0
+
+    for i in args:
+
+        a += i
+
+    return(a)
+
+ 
+
+ 
+
+# In[4]:
+
+ 
+
+ 
+
+add_things(3,6,2,7)
+
+ 
+
+ 
+
+# In[11]:
+
+ 
+
+ 
+
+def add_chi(choice, *args):
+
+    if choice == 'add':
+
+        res = 0
+
+        for i in args:
+
+            res += i
+
+    elif choice == 'mul':
+
+        res = 1
+
+        for j in args:
+
+            res = res * j
+
+    return(res)
+
+       
+
+ 
+
+ 
+
+# In[12]:
+
+ 
+
+ 
+
+add_chi('add',42,3,1,5,6)
+
+ 
+
+ 
+
+# In[13]:
+
+ 
+
+ 
+
+add_chi('mul',2,5)
+
+ 
+
+ 
+
+# ##### **를 하면 key와 value의 딕셔너리로 출력된다
+
+ 
+
+# In[14]:
+
+ 
+
+ 
+
+def add_multi(**kwargs):
+
+    print(kwargs)
+
+ 
+
+ 
+
+# In[16]:
+
+ 
+
+ 
+
+add_multi(a=1)
+
+ 
+
+ 
+
+#
+
+# ##### return을 통해 전역변수를 변경하는것이 좋다. global함수는 지양할것
+
+ 
+
+# #### lambda 매개변수1, 매개변수 2 : 매개변수를 이용한 표현식
+
+ 
+
+# In[17]:
+
+ 
+
+ 
+
+a  = lambda a,b : a+b
+
+ 
+
+ 
+
+# In[18]:
+
+ 
+
+ 
+
+a(1,6)
+
+ 
+
+ 
+
+# #### 04-2 사용자 입력과 출력
+
+ 
+
+# In[19]:
+
+ 
+
+ 
+
+input()
+
+ 
+
+ 
+
+# In[21]:
+
+ 
+
+ 
+
+print('life''is')
+
+ 
+
+ 
+
+# In[22]:
+
+ 
+
+ 
+
+print('life' + 'is')
+
+ 
+
+ 
+
+# #### 04-3 파일 읽고 쓰기
+
+ 
+
+# In[ ]:
+
+ 
+
+#!/usr/bin/env python
+
+# coding: utf-8
+
+ 
+
+# #### 05-1 class
+
+ 
+
+# In[1]:
+
+ 
+
+ 
+
+class calulator:
+
+    def __init__(self):
+
+        self.result =0
+
+    def add(self, num):
+
+        self.result += num
+
+        return self.result
+
+ 
+
+ 
+
+# In[2]:
+
+ 
+
+ 
+
+cal1 = calulator()
+
+ 
+
+ 
+
+# ##### Q. add의 매개변수 self는?
+
+# - A. cal1이 self로 스스로 들어간다
+
+ 
+
+# In[6]:
+
+ 
+
+ 
+
+cal1.add(56)
+
+# 이전에 계산한 결괏값을 유지한다
+
+ 
+
+ 
+
+# In[8]:
+
+ 
+
+ 
+
+cal2 = calulator()
+
+ 
+
+ 
+
+# In[9]:
+
+ 
+
+ 
+
+cal2.add(1)
+
+ 
+
+ 
+
+# In[10]:
+
+ 
+
+ 
+
+cal2.add(352)
+
+ 
+
+ 
+
+# In[11]:
+
+ 
+
+ 
+
+class cal:
+
+    def setdata(self, first, second):
+
+        self.first = first
+
+        self.second = second
+
+    def add(self):
+
+        result = self.first + self.second
+
+        return result
+
+ 
+
+ 
+
+# In[12]:
+
+ 
+
+ 
+
+c = cal()
+
+ 
+
+ 
+
+# In[14]:
+
+ 
+
+ 
+
+c.setdata(4,26)
+
+ 
+
+ 
+
+# In[15]:
+
+ 
+
+ 
+
+c.add()
+
+ 
+
+ 
+
+# ##### __init__생성자는 class 객체가 생성되는 시점에 자동으로 호출된다. 따라서 인수도 그 시점에서 입력되어야 한다.
+
+ 
+
+# In[16]:
+
+ 
+
+ 
+
+class cal:
+
+    def __init__(self, first, second):
+
+        self.first = first
+
+        self.second = second
+
+    def add(self):
+
+        result = self.first + self.second
+
+        return result
+
+ 
+
+ 
+
+# In[18]:
+
+ 
+
+ 
+
+c = cal(10,50)
+
+ 
+
+ 
+
+# In[19]:
+
+ 
+
+ 
+
+c.add()
+
+ 
+
+ 
+
+# #### 05-2. module
+
+ 
+
+# #### - module이란, 함수나 변수  또는 클래스를 모아 놓은 파일(.py)
+
+ 
+
+# In[20]:
+
+ 
+
+ 
+
+import sys
+
+ 
+
+ 
+
+# In[23]:
+
+ 
+
+ 
+
+# 파이썬 라이브러리가 설치되어있는 directory를 보여준다
+
+sys.path
+
+ 
+
+ 
+
+# In[ ]:
+
+ 
+
+ 
+
+sys.path.append()
+
+ 
+
+ 
+
+# #### 05-4. 예외처리
+
+ 
+
+# In[24]:
+
+ 
+
+ 
+
+a = [1,2]
+
+print(a[3])
+
+ 
+
+ 
+
+# In[25]:
+
+ 
+
+ 
+
+try :
+
+    a = [1,2]
+
+    print(a[3])
+
+    4/0
+
+except ZeroDivisionError:
+
+    print("0")
+
+except IndexError:
+
+    print("index")
+
+ 
+
+ 
+
+# In[ ]:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+# In[27]:
+
+ 
+
+ 
+
+# 오류발생시, 아무것도 실행X = > pass
+
+try :
+
+    a = [1,2]
+
+    print(a[3])
+
+    4/0
+
+except:
+
+    pass
+
+ 
+
+ 
+
+# #### 05-5. 내장함수
+
+ 
+
+# Don't reinvent the wheel
+
+ 
+
+# ##### all
+
+# : 반복가능한 (iterable) 자료형 x에 대해 모두 참이면 True, 거짓이 하나라도 있으면 False
+
+ 
+
+# In[29]:
+
+ 
+
+ 
+
+a = [1,2,3]
+
+all(a)
+
+ 
+
+ 
+
+# In[30]:
+
+ 
+
+ 
+
+a = [1,[3.5,6],0]
+
+all(a)
+
+ 
+
+ 
+
+# ##### any
+
+# : 입력인수 중 하나라도 참이 있으면 True, x가 모두 거짓일때만 False
+
+ 
+
+# In[31]:
+
+ 
+
+ 
+
+any(a)
+
+ 
+
+ 
+
+# In[32]:
+
+ 
+
+ 
+
+b = [0,0,0,0]
+
+any(b)
+
+ 
+
+ 
+
+# ##### chr
+
+# : 아스키(ACSII)코드 값을 입력받음
+
+ 
+
+# In[36]:
+
+ 
+
+ 
+
+chr(68)
+
+ 
+
+ 
+
+# ##### ord
+
+# :문자의 아스키 코드값을 돌려주는 함수
+
+ 
+
+# In[62]:
+
+ 
+
+ 
+
+ord('A')
+
+ 
+
+ 
+
+# ##### dir
+
+# : 객체가 자체적으로 가지고 있는 변수나 함수를 보여준다.
+
+ 
+
+# In[37]:
+
+ 
+
+ 
+
+a
+
+ 
+
+ 
+
+# In[39]:
+
+ 
+
+ 
+
+dir(a)
+
+ 
+
+ 
+
+# In[42]:
+
+ 
+
+ 
+
+dir({'name': 26})
+
+ 
+
+ 
+
+# ##### divmod
+
+# : 2개의 인수를 받아 몫과 나머지를 튜플형태로 내보낸다
+
+ 
+
+# In[44]:
+
+ 
+
+ 
+
+a= divmod(7,2)
+
+print(a, type(a))
+
+ 
+
+ 
+
+# ##### enumerate
+
+# : "열거하다"라는 의미. 순서가 있는 자료형(리스트, 튜플, 문자열)을 입력으로 받아 index를 포함하는 enumerate객체로 내보낸다
+
+ 
+
+# In[45]:
+
+ 
+
+ 
+
+days = ['mon','tue','wed']
+
+for i,j in enumerate(days):
+
+    print(i,j)
+
+ 
+
+ 
+
+# ##### eval
+
+# 입력받은 문자열을 실행한 결과값을 보여준다
+
+ 
+
+# In[48]:
+
+ 
+
+ 
+
+eval("12+3")
+
+ 
+
+ 
+
+# In[50]:
+
+ 
+
+ 
+
+eval("'hi'+'oii'")
+
+ 
+
+ 
+
+# ##### filter
+
+ 
+
+# In[51]:
+
+ 
+
+ 
+
+def positive(x):
+
+    return x>0
+
+ 
+
+ 
+
+# In[55]:
+
+ 
+
+ 
+
+list(filter(positive,[2,5,21,-1]))
+
+ 
+
+ 
+
+# In[59]:
+
+ 
+
+ 
+
+list(filter(lambda x : x>0,[2,5,2,-1]))
+
+ 
+
+ 
+
+# ##### map
+
+# : map(f, iterable)
+
+ 
+
+# In[61]:
+
+ 
+
+ 
+
+list(map(lambda x:x*2, [2,5,3,7,-1]))
+
+ 
+
+ 
+
+# ##### open
+
+# : open(filename,[mode])
+
+ 
+
+# [ mode]
+
+# - w : 쓰기모드
+
+# - r :읽기모드
+
+# - a: 추가모드
+
+# - b : 바이너리 모드로 파일 열기
+
+#
+
+ 
+
+# ##### pow
+
+#
+
+ 
+
+# In[65]:
+
+ 
+
+ 
+
+pow(2,3)
+
+ 
+
+ 
+
+# ##### range
+
+ 
+
+# In[67]:
+
+ 
+
+ 
+
+list(range(1,11,2))
+
+ 
+
+ 
+
+# ##### sorted
+
+ 
+
+# In[69]:
+
+ 
+
+ 
+
+a = [1,2,5,6,1,4]
+
+ 
+
+ 
+
+# In[70]:
+
+ 
+
+ 
+
+sorted(a)
+
+ 
+
+ 
+
+# ##### zip
+
+# : 동일한 개수로 이루어진 자료형을 묶어주는 역할
+
+ 
+
+# In[73]:
+
+ 
+
+ 
+
+list(zip([1,5,6],['r','r','y']))[0][0]
+
+ 
+
+ 
+
+# In[74]:
+
+ 
+
+ 
+
+list(zip("akjs",'235'))
+
+ 
+
+ 
+
+# #### 05-6. 외장함수
+
+ 
+
+# ##### sys
+
+ 
+
+# In[76]:
+
+ 
+
+ 
+
+import sys
+
+print(sys.argv)
+
+ 
+
+ 
+
+# In[64]:
+
+ 
+
+ 
+
+# 내가 만든 모듈 불러와 사용하기
+
+sys.path
+
+sys.path.append("C:/모듈위치")
+
+ 
+
+ 
+
+# ##### pickle
+
+# : 객체의 형태를 그대로 유지하면서 파일에 저장하고 불러올 수 있는 모듈
+
+ 
+
+# In[ ]:
+
+ 
+
+ 
+
+import pickle
+
+f = open("파일.txt",'wb')
+
+pickle.dump(data,f)
+
+f.close()
+
+ 
+
+ 
+
+# In[ ]:
+
+ 
+
+ 
+
+f = open('파일.txt','rb')
+
+data = pickle.load(f)
+
+ 
+
+ 
+
+# ##### os
+
+# : 환경변수나 디렉토리, 파일 등의 OS자원을 제어할 수 있게 해주는 모듈
+
+ 
+
+# In[77]:
+
+ 
+
+ 
+
+import os
+
+# 내 시스템의 환경 변수 값
+
+os.environ
+
+ 
+
+ 
+
+# In[79]:
+
+ 
+
+ 
+
+os.environ['PATH']
+
+ 
+
+ 
+
+ 
